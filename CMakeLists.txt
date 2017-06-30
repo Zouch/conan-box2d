@@ -7,6 +7,7 @@ conan_basic_setup(TARGETS)
 option(BUILD_SHARED_LIBS "" ON)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
 add_library(box2d
   Box2D/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.cpp

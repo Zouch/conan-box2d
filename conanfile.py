@@ -23,13 +23,13 @@ class Box2dConan(ConanFile):
         shutil.copy("CMakeLists.txt", "Box2D-488beac0f2287ac373a72710de37d71016cd7348")
 
         cmake = CMake(self)
-        shared = "-DBUILD_SHARED_LIBS=ON" if self.options.shared else ""
+        shared = "-DBUILD_SHARED_LIBS=" + ("ON" if self.options.shared else "OFF")
         self.run('cmake Box2D-{} {} {}'.format("488beac0f2287ac373a72710de37d71016cd7348", cmake.command_line, shared))
         self.run("cmake --build . %s" % cmake.build_config)
 
     def package(self):
         self.copy("*.h", dst="include", src="Box2D-488beac0f2287ac373a72710de37d71016cd7348/Box2D")
-        self.copy("*hello.lib", dst="lib", keep_path=False)
+        self.copy("*.lib", dst="lib", keep_path=False)
         self.copy("*.dll", dst="bin", keep_path=False)
         self.copy("*.so", dst="lib", keep_path=False)
         self.copy("*.dylib", dst="lib", keep_path=False)
