@@ -1,11 +1,12 @@
 cmake_minimum_required(VERSION 3.4 FATAL_ERROR)
 project(Box2D)
 
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake OPTIONAL)
+include(${CMAKE_BINARY_DIR}/../conanbuildinfo.cmake OPTIONAL)
 conan_basic_setup(TARGETS)
 
 option(BUILD_SHARED_LIBS "" ON)
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
