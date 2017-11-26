@@ -4,7 +4,7 @@ import shutil
 
 class Box2dConan(ConanFile):
     name = "Box2D"
-    version = "488beac_2"
+    version = "488beac_3"
     license = "<Put the package license here>"
     url = "<Package recipe repository url here, for issues about the package>"
     settings = "os", "compiler", "build_type", "arch"
@@ -26,7 +26,7 @@ class Box2dConan(ConanFile):
         if self.settings.arch == "universal":
             with tools.pythonpath(self):
                 from multibuilder import MultiBuilder
-                self.multibuilder = MultiBuilder(self, ("armv7", "arm64", "x86_64", "i386"))
+                self.multibuilder = MultiBuilder(self, ("arm64", "x86_64"))
                 self.multibuilder.multi_build(self.real_build)
                 return
 
